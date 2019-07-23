@@ -7,7 +7,6 @@ namespace MerchantGalaxyDriver
     {
         public Dictionary<string, string> _romanTranslations = new Dictionary<string, string>();
         public Dictionary<string, float> _itemValues = new Dictionary<string, float>();
-        private string _allowedRomanNumeralCharacters = "IVXLCDM";
         public static string NoIdeaWhatYouAreTalkingAbout { get; } 
             = "I have no idea what you are talking about";
 
@@ -15,7 +14,8 @@ namespace MerchantGalaxyDriver
         {
             string[] split = s.Split(' ');
 
-            if (split.Length == 3 && split[1] == "is" && _allowedRomanNumeralCharacters.Contains(split[2]))
+            if (split.Length == 3 && split[1] == "is" && 
+                   RomanNumeral.IsRomanNumberal(split[2]))
             {
                 _romanTranslations[split[0]] = split[2];
             }

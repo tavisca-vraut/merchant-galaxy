@@ -17,6 +17,11 @@ namespace MerchantGalaxyDriver
             { 'M', 1000 }
         };
 
+        private static readonly string _allowedRomanNumeralCharacters = "IVXLCDM";
+
+        public static bool IsRomanNumberal(string key) => 
+            _allowedRomanNumeralCharacters.Contains(key);
+
         public static int ConvertToInteger(string romanNumber)
         {
             int result = 0;
